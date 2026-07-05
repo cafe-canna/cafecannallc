@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Products — Cafe Canna</title>
 <meta name="description" content="A preview of the strain categories and craftsmanship coming to Cafe Canna's Virginia storefront in July 2027.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%233fa968'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%236a8a5c'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,6 +20,8 @@
 </head>
 <body>
 
+<script src="../assets/js/sketchy-filter.js"></script>
+
 <div id="age-gate-overlay" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
   <div class="age-gate-card">
     <div class="brand-mark" aria-hidden="true">CC</div>
@@ -30,7 +32,7 @@
       <button type="button" id="age-confirm-yes" class="btn btn-primary">Yes, I'm 21+</button>
       <a href="../restricted/" class="btn btn-outline">No, take me back</a>
     </div>
-    <p class="age-gate-fine">By entering, you confirm you are of legal age to view cannabis-related content in your jurisdiction. See our <a href="../privacy/">Privacy Policy</a> and <a href="../terms/">Terms of Use</a>.</p>
+    <p class="age-gate-fine">By entering, you confirm you are of legal age to view cannabis-related content in your jurisdiction. See our <a href="../privacy/" class="legal-link">Privacy Policy</a> and <a href="../terms/" class="legal-link">Terms of Use</a>.</p>
   </div>
 </div>
 
@@ -75,68 +77,8 @@
         <p class="mt-0"><strong>Coming July 2027.</strong> Prices, availability, and lab results will be published once retail sales are licensed by the Virginia Cannabis Control Authority. Everything below is a placeholder preview, not a current offer for sale.</p>
       </div>
 
-      <div class="grid grid-3">
-
-        <div class="strain-card">
-          <div class="placeholder-img wide"><span>Strain Photo — Placeholder</span></div>
-          <div class="strain-card-body">
-            <span class="strain-type sativa">Sativa</span>
-            <h3>Blue Ridge Haze</h3>
-            <p>Bright, citrus-forward aroma inspired by Virginia's mountain sunrises. A daytime favorite for staying social and productive.</p>
-            <span class="coming-soon-tag">Coming July 2027</span>
-          </div>
-        </div>
-
-        <div class="strain-card">
-          <div class="placeholder-img wide"><span>Strain Photo — Placeholder</span></div>
-          <div class="strain-card-body">
-            <span class="strain-type indica">Indica</span>
-            <h3>Shenandoah Kush</h3>
-            <p>Earthy, pine-forward notes with a deep, dense bud structure. An easygoing evening choice for winding down.</p>
-            <span class="coming-soon-tag">Coming July 2027</span>
-          </div>
-        </div>
-
-        <div class="strain-card">
-          <div class="placeholder-img wide"><span>Strain Photo — Placeholder</span></div>
-          <div class="strain-card-body">
-            <span class="strain-type hybrid">Hybrid</span>
-            <h3>James River Diesel</h3>
-            <p>A balanced cross with a sharp, fuel-forward aroma and a smooth, even-keeled character throughout the day.</p>
-            <span class="coming-soon-tag">Coming July 2027</span>
-          </div>
-        </div>
-
-        <div class="strain-card">
-          <div class="placeholder-img wide"><span>Strain Photo — Placeholder</span></div>
-          <div class="strain-card-body">
-            <span class="strain-type indica">Indica</span>
-            <h3>Piedmont Purple</h3>
-            <p>Deep violet hues with a sweet, grape-forward aroma. Dense, hand-trimmed buds built for slow evenings.</p>
-            <span class="coming-soon-tag">Coming July 2027</span>
-          </div>
-        </div>
-
-        <div class="strain-card">
-          <div class="placeholder-img wide"><span>Strain Photo — Placeholder</span></div>
-          <div class="strain-card-body">
-            <span class="strain-type sativa">Sativa</span>
-            <h3>Tidewater Tangerine</h3>
-            <p>Zesty citrus and tropical fruit notes with a light, uplifting character suited to daytime creative sessions.</p>
-            <span class="coming-soon-tag">Coming July 2027</span>
-          </div>
-        </div>
-
-        <div class="strain-card">
-          <div class="placeholder-img wide"><span>Strain Photo — Placeholder</span></div>
-          <div class="strain-card-body">
-            <span class="strain-type hybrid">Hybrid</span>
-            <h3>Commonwealth OG</h3>
-            <p>Our flagship house blend — woody and herbal with a smooth finish, grown as a small-batch signature offering.</p>
-            <span class="coming-soon-tag">Coming July 2027</span>
-          </div>
-        </div>
-
+      <div class="grid grid-3" id="strain-grid">
+        <noscript><p>Enable JavaScript to view our product preview.</p></noscript>
       </div>
     </div>
   </section>
@@ -189,7 +131,10 @@
   </div>
 </footer>
 
+<script src="../assets/js/modal.js"></script>
 <script src="../assets/js/age-gate.js"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/products-data.js"></script>
+<script src="../assets/js/products.js"></script>
 </body>
 </html>

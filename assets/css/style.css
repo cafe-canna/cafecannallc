@@ -507,6 +507,31 @@ section { padding: 3.5rem 0; }
 }
 .carousel-dot.is-active { width: 22px; background: var(--sage-600); }
 
+.gallery-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+.gallery-trigger .placeholder-img { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.gallery-trigger:hover .placeholder-img,
+.gallery-trigger:focus-visible .placeholder-img { transform: scale(1.03); }
+.gallery-trigger:focus-visible { outline: 2px solid var(--sage-500); outline-offset: 3px; border-radius: var(--radius-blob); }
+
+/* Expanded gallery photo modal — reuses the .legal-modal chrome */
+.gallery-modal-panel { max-width: 760px; }
+.gallery-modal-image {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  transform: none;
+}
+.legal-modal-body h2 { margin-bottom: 0.4em; }
+
 /* -------------------- Strain / Product cards -------------------- */
 .strain-card {
   background: var(--surface);

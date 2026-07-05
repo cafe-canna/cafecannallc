@@ -262,7 +262,7 @@ section { padding: 3.5rem 0; }
 
 .main-nav ul { display: flex; flex-direction: column; gap: 0.25rem; }
 
-.main-nav a {
+.main-nav ul a {
   display: block;
   padding: 0.9rem 0.25rem;
   font-size: 1.05rem;
@@ -270,9 +270,9 @@ section { padding: 3.5rem 0; }
   border-bottom: 1px solid var(--border);
   color: var(--text);
 }
-.main-nav a[aria-current="page"] { color: var(--sage-700); }
+.main-nav ul a[aria-current="page"] { color: var(--sage-700); }
 
-.main-nav .btn { margin-top: 1.25rem; }
+.main-nav .btn { width: 100%; margin-top: 1.25rem; }
 
 @media (min-width: 900px) {
   .nav-toggle { display: none; }
@@ -294,14 +294,14 @@ section { padding: 3.5rem 0; }
     gap: 1.8rem;
   }
 
-  .main-nav a {
+  .main-nav ul a {
     padding: 0.4rem 0;
     border-bottom: none;
     font-size: 0.95rem;
   }
 
-  .main-nav a[aria-current="page"] { position: relative; }
-  .main-nav a[aria-current="page"]::after {
+  .main-nav ul a[aria-current="page"] { position: relative; }
+  .main-nav ul a[aria-current="page"]::after {
     content: '';
     position: absolute;
     left: 0; right: 0; bottom: -4px;
@@ -315,7 +315,7 @@ section { padding: 3.5rem 0; }
     gap: 2rem;
   }
 
-  .main-nav .btn { margin-top: 0; }
+  .main-nav .btn { width: auto; margin-top: 0; }
 }
 
 /* -------------------- Hero -------------------- */
@@ -442,6 +442,70 @@ section { padding: 3.5rem 0; }
 
 .grid > *:nth-child(even) .placeholder-img { transform: rotate(0.8deg); }
 .grid > *:nth-child(3n) .placeholder-img { transform: rotate(-0.3deg); }
+
+/* -------------------- Gallery carousel -------------------- */
+.carousel { position: relative; }
+
+.carousel-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0 0.75rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.carousel-slide {
+  flex: 0 0 78%;
+  scroll-snap-align: center;
+}
+.carousel-slide .placeholder-img { margin: 0; }
+
+@media (min-width: 640px) { .carousel-slide { flex: 0 0 46%; } }
+@media (min-width: 1000px) { .carousel-slide { flex: 0 0 30%; } }
+
+.carousel-arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-1);
+}
+.carousel-arrow svg { width: 20px; height: 20px; }
+.carousel-arrow:hover { border-color: var(--sage-600); color: var(--sage-700); }
+.carousel-arrow-prev { left: -14px; }
+.carousel-arrow-next { right: -14px; }
+@media (max-width: 639px) { .carousel-arrow { display: none; } }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--border-strong);
+  border: none;
+  padding: 0;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+.carousel-dot.is-active { width: 22px; background: var(--sage-600); }
 
 /* -------------------- Strain / Product cards -------------------- */
 .strain-card {

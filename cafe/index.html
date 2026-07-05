@@ -115,13 +115,29 @@
         <h2>A look inside (coming soon)</h2>
         <p>Real photography will replace these placeholders as our space comes together.</p>
       </div>
-      <div class="grid grid-3">
-        <div class="placeholder-img square"><span>Gallery Photo 1</span></div>
-        <div class="placeholder-img square"><span>Gallery Photo 2</span></div>
-        <div class="placeholder-img square"><span>Gallery Photo 3</span></div>
-        <div class="placeholder-img square"><span>Gallery Photo 4</span></div>
-        <div class="placeholder-img square"><span>Gallery Photo 5</span></div>
-        <div class="placeholder-img square"><span>Gallery Photo 6</span></div>
+      <div class="carousel" aria-label="Cafe photo gallery">
+        <div class="carousel-track" tabindex="0">
+          <div class="carousel-slide"><div class="placeholder-img square"><span>Gallery Photo 1</span></div></div>
+          <div class="carousel-slide"><div class="placeholder-img square"><span>Gallery Photo 2</span></div></div>
+          <div class="carousel-slide"><div class="placeholder-img square"><span>Gallery Photo 3</span></div></div>
+          <div class="carousel-slide"><div class="placeholder-img square"><span>Gallery Photo 4</span></div></div>
+          <div class="carousel-slide"><div class="placeholder-img square"><span>Gallery Photo 5</span></div></div>
+          <div class="carousel-slide"><div class="placeholder-img square"><span>Gallery Photo 6</span></div></div>
+        </div>
+        <button type="button" class="carousel-arrow carousel-arrow-prev" aria-label="Previous photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" class="carousel-arrow carousel-arrow-next" aria-label="Next photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <div class="carousel-dots">
+          <button type="button" class="carousel-dot is-active" aria-label="Go to photo 1"></button>
+          <button type="button" class="carousel-dot" aria-label="Go to photo 2"></button>
+          <button type="button" class="carousel-dot" aria-label="Go to photo 3"></button>
+          <button type="button" class="carousel-dot" aria-label="Go to photo 4"></button>
+          <button type="button" class="carousel-dot" aria-label="Go to photo 5"></button>
+          <button type="button" class="carousel-dot" aria-label="Go to photo 6"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -177,5 +193,6 @@
 <script src="../assets/js/modal.js"></script>
 <script src="../assets/js/age-gate.js"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/carousel.js"></script>
 </body>
 </html>

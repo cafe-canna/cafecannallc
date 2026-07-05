@@ -167,9 +167,20 @@ section { padding: 3.5rem 0; }
   height: var(--header-height);
   display: flex;
   align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+/* backdrop-filter lives on this pseudo-element rather than .site-header
+   itself: backdrop-filter (like transform/filter/perspective) on an
+   ancestor becomes the containing block for any position:fixed
+   descendant, which was trapping the fixed full-screen mobile nav
+   inside the header's own small box instead of the viewport. */
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(250, 246, 238, 0.86);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
 }
 
 .site-header .container {

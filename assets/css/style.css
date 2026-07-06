@@ -496,6 +496,7 @@ section { padding: 3.5rem 0; }
   gap: 0.5rem;
   margin-top: 1rem;
 }
+@media (min-width: 640px) { .carousel-dots { display: none; } }
 .carousel-dot {
   width: 9px;
   height: 9px;

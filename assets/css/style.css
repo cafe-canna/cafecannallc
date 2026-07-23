@@ -638,16 +638,33 @@ section { padding: 3.5rem 0; }
 }
 
 .form-status {
-  margin-top: 1rem;
-  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 0;
+  max-height: 0;
+  padding: 0 1.1rem;
   border-radius: var(--radius-sm);
   background: var(--surface-alt);
-  border: 1px solid var(--sage-600);
+  border: 1px solid transparent;
   color: var(--sage-700);
   font-size: 0.9rem;
-  display: none;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease, padding 0.3s ease;
 }
-.form-status.is-visible { display: block; }
+.form-status.is-visible {
+  margin-top: 1rem;
+  max-height: 220px;
+  padding: 0.9rem 1.1rem;
+  opacity: 1;
+}
+.form-status.is-success { border-color: var(--sage-600); color: var(--sage-700); }
+.form-status.is-error { border-color: var(--terracotta-600); color: var(--terracotta-700); }
+.form-status-icon { flex-shrink: 0; width: 20px; height: 20px; margin-top: 0.1em; }
+
+.btn:disabled { opacity: 0.65; cursor: not-allowed; }
+.btn:disabled:active { transform: none; }
 
 /* -------------------- Info blocks (hours, contact) -------------------- */
 .info-list { display: flex; flex-direction: column; gap: 0.7rem; }

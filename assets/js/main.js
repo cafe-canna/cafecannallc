@@ -74,12 +74,32 @@
 
   function setSubmitting(form, submitting) {
     var btn = form.querySelector('button[type="submit"]');
-    if (btn) btn.disabled = submitting;
+    if (!btn) return;
+    btn.disabled = submitting;
+    if (submitting) {
+      btn.dataset.originalText = btn.textContent;
+      btn.textContent = 'Sending…';
+    } else if (btn.dataset.originalText) {
+      btn.textContent = btn.dataset.originalText;
+    }
   }
 
-  function showStatus(status, message) {
-    status.textContent = message;
+  var STATUS_ICONS = {
+    success: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 17.01"></polyline>',
+    error: '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>'
+  };
+
+  function showStatus(status, message, type) {
+    var kind = type === 'error' ? 'error' : 'success';
+    status.classList.remove('is-success', 'is-error');
+    status.classList.add('is-' + kind);
+    status.innerHTML =
+      '<svg class="form-status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        STATUS_ICONS[kind] +
+      '</svg>' +
+      '<span>' + message + '</span>';
     status.classList.add('is-visible');
+    status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   // Apps Script Web Apps don't reliably send CORS headers back to read the
@@ -100,7 +120,7 @@
 
       if (!isConfigured(formEndpoints.waitlistSheetUrl)) {
         console.warn('Waitlist form: CAFE_CANNA_FORMS.waitlistSheetUrl is not configured yet (see assets/js/forms-config.js) — this submission was not saved anywhere.');
-        showStatus(status, successMessage);
+        showStatus(status, successMessage, 'success');
         form.reset();
         return;
       }
@@ -112,11 +132,11 @@
         body: new FormData(form)
       })
         .then(function () {
-          showStatus(status, successMessage);
+          showStatus(status, successMessage, 'success');
           form.reset();
         })
         .catch(function () {
-          showStatus(status, 'Something went wrong sending that — please try again in a moment.');
+          showStatus(status, 'Something went wrong sending that — please try again in a moment.', 'error');
         })
         .finally(function () {
           setSubmitting(form, false);
@@ -140,7 +160,7 @@
 
       if (!isConfigured(formEndpoints.contactFormEndpoint)) {
         console.warn('Contact form: CAFE_CANNA_FORMS.contactFormEndpoint is not configured yet (see assets/js/forms-config.js) — this message was not sent anywhere.');
-        showStatus(status, unconfiguredMessage);
+        showStatus(status, unconfiguredMessage, 'success');
         form.reset();
         return;
       }
@@ -153,11 +173,11 @@
       })
         .then(function (res) {
           if (!res.ok) throw new Error('Form submission failed');
-          showStatus(status, sentMessage);
+          showStatus(status, sentMessage, 'success');
           form.reset();
         })
         .catch(function () {
-          showStatus(status, 'Something went wrong sending that — please try again in a moment.');
+          showStatus(status, 'Something went wrong sending that — please try again in a moment.', 'error');
         })
         .finally(function () {
           setSubmitting(form, false);

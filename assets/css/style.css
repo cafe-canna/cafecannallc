@@ -679,22 +679,6 @@ section { padding: 3.5rem 0; }
 .info-row dt { color: var(--text-muted); }
 .info-row dd { margin: 0; font-weight: 600; color: var(--text); }
 
-.map-placeholder {
-  border: 2px dashed var(--border-strong);
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  min-height: 280px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-align: center;
-  padding: 2rem;
-  color: var(--text-faint);
-}
-.map-placeholder strong { color: var(--text-muted); }
-
 /* -------------------- Countdown -------------------- */
 .countdown {
   display: grid;

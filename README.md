@@ -91,7 +91,7 @@ Formspree's free tier caps at 50 submissions/month — revisit if that's a real 
   - Online ordering is introduced (payment data, account data, order history, etc.).
 - [ ] **Terms of Use** — add e-commerce terms (returns/refunds where applicable, purchase limits, delivery/pickup policy) once retail launches.
 - [ ] **Age gate** — confirm the session-cookie approach still satisfies legal review; consider whether a persistent (multi-day) cookie or ID-verification step is required once real transactions are involved.
-- [ ] **Google Maps** — the Location page currently has a placeholder map block; swap in a real embed (with an API key managed outside source control) once the storefront address is final.
+- [ ] **Google Maps** — the Location page currently has no map (and a disclaimer explaining the address isn't finalized yet); once a real storefront address exists, add a real embed (with an API key managed outside source control) and remove the disclaimer.
 - [ ] **Real photography** — all gallery, product, and team images are CSS placeholder blocks; replace with licensed/owned photography.
 - [ ] **Placeholder content** — team bios, address, phone/email, hours, strain names/descriptions, and mission statement are all placeholders and need real copy before launch.
 - [ ] **Contact/waitlist forms** — wired to Google Sheets and Formspree (see "Form integrations" above), but only actually work once `assets/js/forms-config.js` has real URLs pasted in — confirm both are configured and tested with a real submission before relying on them operationally. Also revisit Formspree's 50/month free-tier cap.
